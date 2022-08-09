@@ -48,14 +48,6 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
-jobs:
-  build:
-    name: Build & Push Docker Image
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v3
-
     - name: docker login
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD 
