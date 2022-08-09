@@ -48,6 +48,13 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
+    - name: List dir
+      run: |
+        ls -ltr .
+        ls -ltr ..
+        ls -ltr  ../..
+        pwd
+
     - name: docker login
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD 
