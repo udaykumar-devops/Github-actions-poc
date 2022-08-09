@@ -109,11 +109,10 @@ jobs:
       uses: repo-sync/pull-request@v2
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        title: ${{ github.event.commits[0].message }}
-        source_branch: github_actions_poc
-        target_branch: main
-        assignee: ${{ github.actor }}
-        label: automatic,feature
-        old_string: "Auto Pull Request"
-        new_string: ${{ github.event.commits[0].message }}
-        get_diff: true
+        pr_title: ${{ github.event.commits[0].message }}
+        source_branch: main
+        destination_branch: github_actions_poc
+        pr_assignee: ${{ github.actor }}
+        pr_reviewer: ${{ github.actor }}
+        pr_label: automatic,feature
+        pr_body: ${{ github.event.commits[0].message }}
