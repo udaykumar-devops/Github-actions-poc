@@ -110,8 +110,8 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         pr_title: ${{ github.event.commits[0].message }}
-        source_branch: main
-        destination_branch: github_actions_poc
+        source_branch: github_actions_poc
+        destination_branch: main
         pr_assignee: ${{ github.actor }}
         pr_reviewer: ${{ github.actor }}
         pr_label: automatic,feature
