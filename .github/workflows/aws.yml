@@ -9,7 +9,7 @@ name: Build Java App using Maven Deploy to Amazon ECS
 on:
   push:
     branches:
-      - "github_actions_poc"
+      - feature/*
   
 env:
   DOCKER_USER: ${{secrets.DOCKER_USER}}
@@ -106,11 +106,12 @@ jobs:
     #     wait-for-service-stability: true
 
     - name: Create Pull Request
-        if: startsWith(github.ref, 'refs/heads/feature')
         uses: udaykumar-devops/Github-actions-poc@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           title: ${{ github.event.commits[0].message }}
+          source_branch: github_actions_poc
+          target_branch: main
           assignee: ${{ github.actor }}
           label: automatic,feature
           old_string: "Auto Pull Request"
