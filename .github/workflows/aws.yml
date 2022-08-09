@@ -106,7 +106,7 @@ jobs:
     #     wait-for-service-stability: true
 
     - name: Create Auto Pull Request
-      uses: udaykumar-devops/Github-actions-poc@github_actions_poc
+      uses: repo-sync/pull-request@v2
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         title: ${{ github.event.commits[0].message }}
