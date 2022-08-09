@@ -111,6 +111,6 @@ jobs:
         commit-message: Auto pull request
         title: ${{ github.event.commits[0].message }}
         body: ${{ github.event.commits[0].message }}
-        branch: github_actions_poc
+        branch: ${{ github.ref }}
         base: main
         token: ${{ secrets.UDAY_GIT_TOKEN }}
