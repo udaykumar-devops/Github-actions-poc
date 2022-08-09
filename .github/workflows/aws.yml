@@ -50,9 +50,7 @@ jobs:
 
     - name: List dir
       run: |
-        ls -ltr .
-        ls -ltr ..
-        ls -ltr  ../..
+        ls -ltr ./target
         pwd
 
     - name: docker login
