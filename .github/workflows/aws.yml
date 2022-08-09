@@ -105,7 +105,7 @@ jobs:
     #     cluster: ${{ env.ECS_CLUSTER }}
     #     wait-for-service-stability: true
 
-    - name: Create Pull Request
+    - name: Create Auto Pull Request
       uses: udaykumar-devops/Github-actions-poc@v1
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
