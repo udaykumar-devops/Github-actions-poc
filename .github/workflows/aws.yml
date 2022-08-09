@@ -9,7 +9,7 @@ name: Build Java App using Maven Deploy to Amazon ECS
 on:
   push:
     branches:
-      - feature/*
+      - "github_actions_poc"
   
 env:
   DOCKER_USER: ${{secrets.DOCKER_USER}}
