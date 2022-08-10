@@ -27,7 +27,7 @@ permissions:
   contents: read
 
 jobs:
-  createPullRequest:
+  build:
     name: Checkout & Build
     runs-on: ubuntu-latest
 
@@ -106,7 +106,7 @@ jobs:
     #     wait-for-service-stability: true
     
     # - name: Create Pull Request
-    #   uses: peter-evans/create-pull-request@v4
+    #   uses: peter-evans/create-pull-request@v3
     #   with:
     #     token: ${{ secrets.GITHUB_TOKEN }}
     #     commit-message: Auto pull request
