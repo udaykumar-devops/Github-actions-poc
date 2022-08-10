@@ -108,7 +108,7 @@ jobs:
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v4
       with:
-        token: ${{ secrets.UDAY_GIT_TOKEN }}
+        token: ${{ secrets.GITHUB_TOKEN }}
         commit-message: Auto pull request
         title: ${{ github.event.commits[0].message }}
         body: ${{ github.event.commits[0].message }}
