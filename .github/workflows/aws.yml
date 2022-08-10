@@ -102,7 +102,6 @@ jobs:
       uses: peter-evans/create-pull-request@v4
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        commit-message: Auto pull request
         title: ${{ github.event.commits[0].message }}
         body: ${{ github.event.commits[0].message }}
         branch: github_actions_poc
