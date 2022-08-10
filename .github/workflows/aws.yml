@@ -106,6 +106,7 @@ jobs:
         title: ${{ github.event.commits[0].message }}
         body: ${{ github.event.commits[0].message }}
         branch: github_actions_poc
+        base: main
         labels: |
           report
           automated pr
