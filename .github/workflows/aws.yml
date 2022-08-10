@@ -6,7 +6,7 @@
 
 name: Build Java App using Maven Deploy to Amazon ECS
 
-on: [push, pull_request]
+on: [push]
 
 env:
   DOCKER_USER: ${{secrets.DOCKER_USER}}
@@ -110,4 +110,3 @@ jobs:
         labels: |
           report
           automated pr
-        draft: false 
