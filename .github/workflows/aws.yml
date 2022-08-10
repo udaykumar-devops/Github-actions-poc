@@ -6,10 +6,10 @@
 
 name: Build Java App using Maven Deploy to Amazon ECS
 
-# on:
-#   push:
-#     branches:
-#       - "github_actions_poc"
+on: [push, pull_request]
+  branches:
+    - "main"
+  
   
 env:
   DOCKER_USER: ${{secrets.DOCKER_USER}}
@@ -102,11 +102,14 @@ jobs:
     #     wait-for-service-stability: true
     
     - name: Create Pull Request
-      uses: peter-evans/create-pull-request@v3
+      uses: peter-evans/create-pull-request@v4
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.PAT }}
         commit-message: Auto pull request
         title: ${{ github.event.commits[0].message }}
         body: ${{ github.event.commits[0].message }}
-        branch: ${{ github.ref }}
-
+        branch: github_actions_poc
+        labels: |
+          report
+          automated pr
+        draft: false 
