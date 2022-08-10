@@ -6,11 +6,8 @@
 
 name: Build Java App using Maven Deploy to Amazon ECS
 
-# on: [push, pull_request]
-on:
-  push:
-    branches: github_actions_poc
-  
+on: [push, pull_request]
+
 env:
   DOCKER_USER: ${{secrets.DOCKER_USER}}
   DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
