@@ -27,7 +27,7 @@ permissions:
   contents: read
 
 jobs:
-  build:
+  pull-request:
     name: Checkout & Build
     runs-on: ubuntu-latest
 
@@ -117,7 +117,7 @@ jobs:
     - name: Create Pull Request
       uses: repo-sync/pull-request@v2
       with:
-        github_token: ${{ secrets.PAT }}
+        github_token: ${{ secrets.GITHUB_TOKEN }}
         pr_title: ${{ github.event.commits[0].message }}
         pr_body: ${{ github.event.commits[0].message }}
         pr_draft: true
