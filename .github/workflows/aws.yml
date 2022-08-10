@@ -6,10 +6,10 @@
 
 name: Build Java App using Maven Deploy to Amazon ECS
 
-on:
-  push:
-    branches:
-      - "github_actions_poc"
+# on:
+#   push:
+#     branches:
+#       - "github_actions_poc"
   
 env:
   DOCKER_USER: ${{secrets.DOCKER_USER}}
@@ -22,13 +22,9 @@ env:
                                                # file, e.g. .aws/task-definition.json
   CONTAINER_NAME: MY_CONTAINER_NAME           # set this to the name of the container in the
                                                # containerDefinitions section of your task definition
-
-permissions:
-  contents: read
-
 jobs:
-  pull-request:
-    name: Checkout & Build
+  createPullRequest:
+    name: Build and Deploy
     runs-on: ubuntu-latest
 
     steps:
@@ -105,20 +101,12 @@ jobs:
     #     cluster: ${{ env.ECS_CLUSTER }}
     #     wait-for-service-stability: true
     
-    # - name: Create Pull Request
-    #   uses: peter-evans/create-pull-request@v3
-    #   with:
-    #     token: ${{ secrets.GITHUB_TOKEN }}
-    #     commit-message: Auto pull request
-    #     title: ${{ github.event.commits[0].message }}
-    #     body: ${{ github.event.commits[0].message }}
-    #     branch: ${{ github.ref }}
-
     - name: Create Pull Request
-      uses: repo-sync/pull-request@v2
+      uses: peter-evans/create-pull-request@v3
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        pr_title: ${{ github.event.commits[0].message }}
-        pr_body: ${{ github.event.commits[0].message }}
-        pr_draft: true
-        destination_branch: "main"
+        token: ${{ secrets.GITHUB_TOKEN }}
+        commit-message: Auto pull request
+        title: ${{ github.event.commits[0].message }}
+        body: ${{ github.event.commits[0].message }}
+        branch: ${{ github.ref }}
+
